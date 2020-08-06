@@ -1,4 +1,4 @@
-﻿namespace PeachTreeBank.Core.Enums
+﻿namespace PeachtreeBank.Core.Enums
 {
     public enum TransactionType
     {

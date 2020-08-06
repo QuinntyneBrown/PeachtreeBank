@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PeachTreeBank.Core\PeachTreeBank.Core.csproj" />
-    <ProjectReference Include="..\..\src\PeachTreeBank.Domain\PeachTreeBank.Domain.csproj" />
-    <ProjectReference Include="..\..\src\PeachTreeBank.Api\PeachTreeBank.Api.csproj" />
+    <ProjectReference Include="..\..\src\PeachTreeBank.Api\PeachtreeBank.Api.csproj" />
+    <ProjectReference Include="..\..\src\PeachTreeBank.Core\PeachtreeBank.Core.csproj" />
+    <ProjectReference Include="..\..\src\PeachTreeBank.Domain\PeachtreeBank.Domain.csproj" />
   </ItemGroup>
 
 </Project>

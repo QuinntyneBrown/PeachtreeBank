@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace PeachTreeBank.Api
+namespace PeachtreeBank.Api
 {
     public class Program
     {

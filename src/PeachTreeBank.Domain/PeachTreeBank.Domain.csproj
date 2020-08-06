@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\PeachTreeBank.Core\PeachTreeBank.Core.csproj" />
+    <Folder Include="Features\Transactions\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Transactions\" />
+    <ProjectReference Include="..\PeachTreeBank.Core\PeachtreeBank.Core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

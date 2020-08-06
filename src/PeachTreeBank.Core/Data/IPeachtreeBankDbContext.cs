@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PeachTreeBank.Core.Models;
+using PeachtreeBank.Core.Models;
 
-namespace PeachTreeBank.Core.Data
+namespace PeachtreeBank.Core.Data
 {
     public interface IPeachtreeBankDbContext
     {

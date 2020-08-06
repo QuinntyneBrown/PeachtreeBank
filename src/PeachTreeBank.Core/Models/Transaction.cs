@@ -1,9 +1,9 @@
-using PeachTreeBank.Core.Enums;
+using PeachtreeBank.Core.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace PeachTreeBank.Core.Models
+namespace PeachtreeBank.Core.Models
 {
     public class Transaction
     {

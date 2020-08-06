@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>c174b091-900b-4759-9d5c-47540fddbba3</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PeachTreeBank.Core\PeachTreeBank.Core.csproj" />
-    <ProjectReference Include="..\PeachTreeBank.Domain\PeachTreeBank.Domain.csproj" />
+    <ProjectReference Include="..\PeachTreeBank.Core\PeachtreeBank.Core.csproj" />
+    <ProjectReference Include="..\PeachTreeBank.Domain\PeachtreeBank.Domain.csproj" />
   </ItemGroup>
 
 

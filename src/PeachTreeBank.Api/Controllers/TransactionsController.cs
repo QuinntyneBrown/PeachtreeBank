@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace PeachTreeBank.Api.Controllers
+namespace PeachtreeBank.Api.Controllers
 {
     [ApiController]
     public class TransactionsController

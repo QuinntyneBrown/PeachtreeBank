@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PeachTreeBank.Api.Seeding
+namespace PeachtreeBank.Api.Seeding
 {
     public class SeedData
     {
