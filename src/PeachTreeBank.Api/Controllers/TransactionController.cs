@@ -1,21 +1,19 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PeachtreeBank.Domain.Features.Transactions;
 using System.Threading.Tasks;
 
-namespace PeachTreeBank.Api.Controllers
+namespace PeachtreeBank.Api.Controllers
 {
     [ApiController]
-    [Route("api/transactions")]
+    [Route("api/{{ entityNameCamelCasePlural }}")]
     public class TransactionsController
     {
         private readonly IMediator _mediator;
 
         public TransactionsController(IMediator mediator) => _mediator = mediator;
 
-        [HttpPut]
-        public async Task<ActionResult<UpsertTransaction.Response>> Update([FromBody]UpsertTransaction.Request request)
-            => await _mediator.Send(request);
         
         [HttpDelete("{transactionId}")]
         public async Task Remove([FromRoute]RemoveTransaction.Request request)

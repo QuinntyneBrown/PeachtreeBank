@@ -4,7 +4,7 @@ using System.Threading;
 using PeachtreeBank.Core.Data;
 using System;
 
-namespace PeachTreeBank.Domain.Features.Transactions
+namespace PeachtreeBank.Domain.Features.Transactions
 {
     public class RemoveTransaction
     {

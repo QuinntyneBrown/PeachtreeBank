@@ -5,7 +5,7 @@ using PeachtreeBank.Core.Data;
 using PeachtreeBank.Domain.Features.Transactions;
 using FluentValidation;
 
-namespace PeachTreeBank.Domain.Features.Transactions
+namespace PeachtreeBank.Domain.Features.Transactions
 {
     public class UpsertTransaction
     {

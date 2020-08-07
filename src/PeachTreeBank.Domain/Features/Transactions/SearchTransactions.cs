@@ -6,7 +6,7 @@ using System.Collections;
 using PeachtreeBank.Domain.Features.Transactions;
 using System.Collections.Generic;
 
-namespace PeachTreeBank.Domain.Features.Transactions
+namespace PeachtreeBank.Domain.Features.Transactions
 {
     public class SearchTransactions
     {

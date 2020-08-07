@@ -12,6 +12,8 @@ namespace PeachtreeBank.Api
     {
         public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<IPeachtreeBankDbContext, PeachtreeBankDbContext>();
+
             services.AddDbContext<PeachtreeBankDbContext>(options =>
             {
                 options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"], b => b.MigrationsAssembly("PeachtreeBank.Api"));
