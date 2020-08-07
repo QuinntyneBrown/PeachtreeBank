@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
+using PeachtreeBank.Api.Seeding;
 
 namespace PeachtreeBank.Api
 {
@@ -45,7 +46,7 @@ namespace PeachtreeBank.Api
                 if (args.Contains("seeddb"))
                 {
                     context.Database.EnsureCreated();
-
+                    SeedData.Seed(context);
                 }
 
                 if (args.Contains("stop"))

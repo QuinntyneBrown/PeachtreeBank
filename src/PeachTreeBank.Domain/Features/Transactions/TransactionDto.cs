@@ -7,7 +7,7 @@ namespace PeachtreeBank.Domain.Features.Transactions
         public Guid TransactionId { get; set; }
         public string CategoryCode { get; set; }
         public string Amount { get; set; }
-        public int TransactionDate { get; set; }
+        public Int64 TransactionDate { get; set; }
         public string Merchant { get; set; }
         public string MerchantLogo { get; set; }
         public string TransactionType { get; set; }
