@@ -22,14 +22,23 @@ namespace PeachTreeBank.Api.Controllers
             => await _mediator.Send(request);
         
         [HttpDelete("{transactionId}")]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(RemoveTransaction.Response), (int)HttpStatusCode.OK)]
         public async Task Remove([FromRoute]RemoveTransaction.Request request)
             => await _mediator.Send(request);            
 
         [HttpGet("{transactionId}")]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(GetTransactionById.Response), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<GetTransactionById.Response>> GetById([FromRoute]GetTransactionById.Request request)
             => await _mediator.Send(request);
 
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(GetTransactions.Response), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<GetTransactions.Response>> Get()
             => await _mediator.Send(new GetTransactions.Request());
     }
