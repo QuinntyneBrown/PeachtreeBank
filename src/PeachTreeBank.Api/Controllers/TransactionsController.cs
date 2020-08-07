@@ -1,10 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PeachtreeBank.Domain.Features.Transactions;
 using System.Net;
 using System.Threading.Tasks;
+using PeachtreeBank.Domain.Features.Transactions;
 
-namespace PeachTreeBank.Api.Controllers
+namespace PeachtreeBank.Api.Controllers
 {
     [ApiController]
     [Route("api/transactions")]
@@ -14,28 +14,28 @@ namespace PeachTreeBank.Api.Controllers
 
         public TransactionsController(IMediator mediator) => _mediator = mediator;
 
-        [HttpPut]
+        [HttpPut(Name = "UpsertTransactionRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(UpsertTransaction.Response), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UpsertTransaction.Response>> Update([FromBody]UpsertTransaction.Request request)
+        public async Task<ActionResult<UpsertTransaction.Response>> Upsert([FromBody]UpsertTransaction.Request request)
             => await _mediator.Send(request);
         
-        [HttpDelete("{transactionId}")]
+        [HttpDelete("{transactionId}", Name = "RemoveTransactionRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(RemoveTransaction.Response), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task Remove([FromRoute]RemoveTransaction.Request request)
             => await _mediator.Send(request);            
 
-        [HttpGet("{transactionId}")]
+        [HttpGet("{transactionId}", Name = "GetTransactionByIdRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(GetTransactionById.Response), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<GetTransactionById.Response>> GetById([FromRoute]GetTransactionById.Request request)
             => await _mediator.Send(request);
 
-        [HttpGet]
+        [HttpGet(Name = "GetTransactionsRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(GetTransactions.Response), (int)HttpStatusCode.OK)]

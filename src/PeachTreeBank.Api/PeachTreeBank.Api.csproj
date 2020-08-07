@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <Content Remove="codeGeneratorSettings.json" />
+    <Content Remove="Seeding\transactions.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Seeding\transactions.json" />
   </ItemGroup>
 
   <ItemGroup>
