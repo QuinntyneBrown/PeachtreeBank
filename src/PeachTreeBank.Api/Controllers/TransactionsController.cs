@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PeachtreeBank.Domain.Features.Transactions;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace PeachTreeBank.Api.Controllers
@@ -14,6 +15,9 @@ namespace PeachTreeBank.Api.Controllers
         public TransactionsController(IMediator mediator) => _mediator = mediator;
 
         [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UpsertTransaction.Response), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UpsertTransaction.Response>> Update([FromBody]UpsertTransaction.Request request)
             => await _mediator.Send(request);
         
