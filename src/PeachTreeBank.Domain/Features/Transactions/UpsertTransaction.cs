@@ -2,26 +2,33 @@ using MediatR;
 using System.Threading.Tasks;
 using System.Threading;
 using PeachtreeBank.Core.Data;
-using System.Collections;
 using PeachtreeBank.Domain.Features.Transactions;
-using System.Collections.Generic;
+using FluentValidation;
 
 namespace PeachTreeBank.Domain.Features.Transactions
 {
-    public class SearchTransactions
+    public class UpsertTransaction
     {
+        public class Validator : AbstractValidator<Request>
+        {
+            public Validator()
+            {
+
+            }
+        }
+
         public class Request : IRequest<Response> {
-            public string Term { get; set; }
+            public TransactionDto Transaction { get; set; }
         }
 
         public class Response
         {
-            public ICollection<TransactionDto> Transactions { get; set; }
+            public TransactionDto Transaction { get; set; }
         }
 
         public class Handler : IRequestHandler<Request, Response>
         {
-            private IPeachtreeBankDbContext _context { get; set; }
+            private readonly IPeachtreeBankDbContext _context;
 
             public Handler(IPeachtreeBankDbContext context) => _context = context;
 

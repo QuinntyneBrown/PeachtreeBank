@@ -2,21 +2,19 @@ using MediatR;
 using System.Threading.Tasks;
 using System.Threading;
 using PeachtreeBank.Core.Data;
-using System.Collections;
-using PeachtreeBank.Domain.Features.Transactions;
-using System.Collections.Generic;
+using System;
 
 namespace PeachTreeBank.Domain.Features.Transactions
 {
-    public class SearchTransactions
+    public class GetTransactionById
     {
         public class Request : IRequest<Response> {
-            public string Term { get; set; }
+            public Guid TransactionId { get; set; }
         }
 
         public class Response
         {
-            public ICollection<TransactionDto> Transactions { get; set; }
+
         }
 
         public class Handler : IRequestHandler<Request, Response>
