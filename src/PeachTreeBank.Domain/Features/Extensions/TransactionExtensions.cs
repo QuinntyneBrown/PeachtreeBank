@@ -11,19 +11,10 @@ namespace PeachtreeBank.Domain.Features.Extensions
 
         public static TransactionDto ToDto(this Transaction transaction)
         {
-            var categoryCode = "";
-
-            switch(transaction.CategoryCode)
-            {
-                default:
-                    categoryCode = "#fff";
-                    break;
-            }
-
             return new TransactionDto
             {
                 TransactionId = transaction.TransactionId,
-                CategoryCode = categoryCode,
+                CategoryCode = transaction.CategoryCode.ToColorCode(),
                 TransactionType = new NamingConventionConverter().Convert(NamingConvention.TitleCase, Enum.GetName(typeof(TransactionType), transaction.TransactionType)),
                 Amount = $"{transaction.Amount}",
                 Merchant = transaction.Merchant,

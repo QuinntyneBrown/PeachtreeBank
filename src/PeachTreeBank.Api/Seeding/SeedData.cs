@@ -5,6 +5,7 @@ using PeachtreeBank.Core.Models;
 using PeachtreeBank.Domain.Features.Transactions;
 using System;
 using System.Collections.Generic;
+using PeachtreeBank.Domain.Features.Extensions;
 
 namespace PeachtreeBank.Api.Seeding
 {
@@ -23,8 +24,9 @@ namespace PeachtreeBank.Api.Seeding
                     MerchantLogo = transaction.MerchantLogo,
                     Merchant = transaction.Merchant,
                     Amount = float.Parse(transaction.Amount),
-                    TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), transaction.TransactionType.Replace(" ",string.Empty))
-            });
+                    CategoryCode = transaction.CategoryCode.ToCategoryCodeEnum(),
+                    TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), transaction.TransactionType.Replace(" ", string.Empty))
+                });
             }
 
             dbContext.SaveChanges();
