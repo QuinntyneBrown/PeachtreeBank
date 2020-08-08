@@ -2,6 +2,8 @@
 {
     public enum TransactionType
     {
-
+        CardPayment,
+        OnlineTransfer,
+        Transaction
     }
 }

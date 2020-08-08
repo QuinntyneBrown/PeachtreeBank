@@ -10,7 +10,7 @@ using PeachtreeBank.Core.Data;
 namespace PeachtreeBank.Api.Migrations
 {
     [DbContext(typeof(PeachtreeBankDbContext))]
-    [Migration("20200807005658_InitialCreate")]
+    [Migration("20200808102819_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

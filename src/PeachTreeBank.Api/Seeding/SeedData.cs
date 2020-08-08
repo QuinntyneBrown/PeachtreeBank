@@ -13,28 +13,22 @@ namespace PeachtreeBank.Api.Seeding
         public static void Seed(PeachtreeBankDbContext dbContext)
         {
             var json = StaticFileLocator.GetAsString("transactions.json");
-            var file = JsonConvert.DeserializeObject<TransactionFileDto>(json);
+            var jsonObject = JsonConvert.DeserializeObject<GetTransactions.Response>(json);
             
-            foreach(var transaction in file.Data)
+            foreach(var transaction in jsonObject.Transactions)
             {
                 dbContext.Transactions.Add(new Transaction
                 {
                     TransactionDate = new DateTime(1970, 01, 01).AddMilliseconds(transaction.TransactionDate),
                     MerchantLogo = transaction.MerchantLogo,
                     Merchant = transaction.Merchant,
-                    //CategoryCode = (CategoryCode)Enum.Parse(typeof(CategoryCode), transaction.CategoryCode),
                     Amount = float.Parse(transaction.Amount),
-                    TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), transaction.TransactionType)
+                    TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), transaction.TransactionType.Replace(" ",string.Empty))
             });
             }
 
             dbContext.SaveChanges();
 
         }
-    }
-
-    public class TransactionFileDto
-    {
-        public List<TransactionDto> Data { get; set; }
     }
 }
