@@ -20,12 +20,12 @@ namespace PeachtreeBank.Api.Seeding
             {
                 dbContext.Transactions.Add(new Transaction
                 {
-                    TransactionDate = new DateTime(1970, 01, 01).AddMilliseconds(transaction.TransactionDate),
+                    TransactionDate = transaction.TransactionDate.ToDateTime(),
                     MerchantLogo = transaction.MerchantLogo,
                     Merchant = transaction.Merchant,
                     Amount = float.Parse(transaction.Amount),
                     CategoryCode = transaction.CategoryCode.ToCategoryCodeEnum(),
-                    TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), transaction.TransactionType.Replace(" ", string.Empty))
+                    TransactionType = transaction.TransactionType.ToTransactionTypeEnum()
                 });
             }
 

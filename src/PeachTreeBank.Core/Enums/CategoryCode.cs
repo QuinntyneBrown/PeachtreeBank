@@ -2,6 +2,24 @@
 {
     public enum CategoryCode
     {
-        Personal, Business
+        AmusementAndEntertainment, 
+        Associations,
+        BarsAndResturants,
+        BusinessServices,
+        ClothingAndAccessories,
+        ContractedServices,
+        DirectMarketing,
+        Education,
+        GovermentServies,
+        HomeAndGarden,
+        MiscellaneousStores,
+        PersonalServices,
+        ProfessionalServices,
+        Repair,
+        RetailStore,
+        Telecom,
+        Transportation,
+        Utilities,
+        Wholesale,
     }
 }
