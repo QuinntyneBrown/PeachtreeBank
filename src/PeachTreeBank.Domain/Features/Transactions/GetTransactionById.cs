@@ -14,7 +14,7 @@ namespace PeachtreeBank.Domain.Features.Transactions
 
         public class Response
         {
-
+            public TransactionDto Transaction { get; set; }
         }
 
         public class Handler : IRequestHandler<Request, Response>

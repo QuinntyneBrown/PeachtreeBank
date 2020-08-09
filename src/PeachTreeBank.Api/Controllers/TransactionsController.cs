@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Threading.Tasks;
 using PeachtreeBank.Domain.Features.Transactions;
+using System;
 
 namespace PeachtreeBank.Api.Controllers
 {
@@ -36,8 +37,16 @@ namespace PeachtreeBank.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(GetTransactionById.Response), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Guid), (int)HttpStatusCode.NotFound)]
         public async Task<ActionResult<GetTransactionById.Response>> GetById([FromRoute]GetTransactionById.Request request)
-            => await _mediator.Send(request);
+        {
+            var response = await _mediator.Send(request);
+
+            if (response.Transaction == null)
+                return new NotFoundObjectResult(request.TransactionId);
+
+            return response;
+        }
 
         [HttpGet(Name = "GetTransactionsRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
