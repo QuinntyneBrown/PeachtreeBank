@@ -17,9 +17,13 @@ namespace PeachtreeBank.Api.Controllers
         [HttpPut(Name = "UpsertTransactionRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(UpsertTransaction.Response), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UpsertTransaction.Response>> Upsert([FromBody]UpsertTransaction.Request request)
-            => await _mediator.Send(request);
+        [ProducesResponseType(typeof(UpsertTransaction.Response), (int)HttpStatusCode.Created)]
+        public async Task<ActionResult<UpsertTransaction.Response>> Upsert([FromBody] UpsertTransaction.Request request)
+        {
+            var response = await _mediator.Send(request);
+
+            return new CreatedAtActionResult(nameof(GetById), nameof(TransactionsController), new { id = response.Transaction.TransactionId }, response);
+        }
         
         [HttpDelete("{transactionId}", Name = "RemoveTransactionRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
