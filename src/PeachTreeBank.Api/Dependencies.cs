@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using PeachtreeBank.Core.Data;
 using PeachtreeBank.Domain.Behaviours;
 using PeachtreeBank.Domain.Features.Transactions;
+using System;
 
 namespace PeachtreeBank.Api
 {
@@ -32,6 +34,29 @@ namespace PeachtreeBank.Api
             services.AddMediatR(typeof(GetTransactions));
 
             services.AddControllers();
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Peachtree Bank Api",
+                    Description = "An api that provides transaction history",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Quinntyne Brown",
+                        Email = "quinntynebrown@gmail.com"
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under MIT",
+                        Url = new Uri("https://opensource.org/licenses/MIT"),
+                    }
+                });
+
+                options.CustomSchemaIds(x => x.FullName);
+            });
         }
     }
 }
