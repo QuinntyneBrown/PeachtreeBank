@@ -12,6 +12,14 @@ namespace PeachtreeBank.Api
     {
         public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddCors(options => options.AddPolicy("CorsPolicy",
+                builder => builder
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(isOriginAllowed: _ => true)
+                .AllowCredentials()));
+
             services.AddTransient<IPeachtreeBankDbContext, PeachtreeBankDbContext>();
 
             services.AddDbContext<PeachtreeBankDbContext>(options =>

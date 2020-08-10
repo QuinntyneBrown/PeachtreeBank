@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
 using PeachtreeBank.Core.Data;
-using PeachtreeBank.Core.Enums;
 using PeachtreeBank.Core.Models;
-using PeachtreeBank.Domain.Features.Transactions;
-using System;
-using System.Collections.Generic;
 using PeachtreeBank.Domain.Features.Extensions;
+using PeachtreeBank.Domain.Features.Transactions;
 
 namespace PeachtreeBank.Api.Seeding
 {
@@ -30,7 +27,6 @@ namespace PeachtreeBank.Api.Seeding
             }
 
             dbContext.SaveChanges();
-
         }
     }
 }
