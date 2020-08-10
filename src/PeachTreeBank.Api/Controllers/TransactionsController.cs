@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Threading.Tasks;
 using PeachtreeBank.Domain.Features.Transactions;
 using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace PeachtreeBank.Api.Controllers
 {
