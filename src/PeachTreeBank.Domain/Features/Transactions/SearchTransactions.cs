@@ -1,17 +1,18 @@
 using MediatR;
-using System.Threading.Tasks;
-using System.Threading;
+using Microsoft.EntityFrameworkCore;
 using PeachtreeBank.Core.Data;
-using System.Collections;
-using PeachtreeBank.Domain.Features.Transactions;
+using PeachtreeBank.Domain.Features.Extensions;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PeachtreeBank.Domain.Features.Transactions
 {
     public class SearchTransactions
     {
         public class Request : IRequest<Response> {
-            public string Term { get; set; }
+            public string Query { get; set; }
         }
 
         public class Response
@@ -26,7 +27,9 @@ namespace PeachtreeBank.Domain.Features.Transactions
             public Handler(IPeachtreeBankDbContext context) => _context = context;
 
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken) {
-			    return new Response() { };
+			    return new Response { 
+                    Transactions = await _context.Transactions.Select(x => x.ToDto()).ToListAsync()
+                };
             }
         }
     }

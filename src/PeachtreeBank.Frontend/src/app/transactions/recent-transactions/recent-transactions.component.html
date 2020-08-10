@@ -1,0 +1,8 @@
+<app-title title='Recent Transactions'></app-title>
+<div class='recentTransactions__controls'>
+    <input type="text" placeholder="Search by typing..." [(ngModel)]='searchInput'>
+    <app-sort-by (sort)='onSort($event)' [sortBy]='"Date"' [sortAscending]='sortAscending'></app-sort-by>
+</div>
+<div>
+    <app-transaction-item *ngFor='let transaction of transactions | search : searchInput | multiOrderBy : sortOptions' [transaction]='transaction'></app-transaction-item>
+</div>

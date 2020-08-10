@@ -1,0 +1,31 @@
+:host {
+    display: grid;
+    grid-template-columns:  max-content max-content max-content max-content;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+span:first-child {
+    border:0;
+    font-weight: 600;
+}
+
+span {
+    border-right: 1px solid #ccc;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    user-select: none;
+}
+
+span:nth-child(2) {
+    border-left: 1px #ccc solid;
+}
+
+span:not(:first-child) {
+    cursor: pointer;
+}

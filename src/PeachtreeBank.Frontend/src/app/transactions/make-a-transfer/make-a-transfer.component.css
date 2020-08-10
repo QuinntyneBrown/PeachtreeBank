@@ -1,0 +1,30 @@
+:host {
+    display: block;
+
+}
+
+app-sub-header {
+    --main-bg-color:42px;
+}
+
+label {
+    display: block;
+    font-weight: 800;
+    font-size: 11px;
+    line-height: 1em;
+}
+
+:host > div {
+    padding: 30px 15px;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+form div {
+    margin: 0 0 25px 0;
+    text-align: left;
+}
+
+form {
+    text-align: right;
+}

@@ -1,0 +1,39 @@
+:host {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background-color: #0c8397;
+    justify-content: center;
+    align-content: center; 
+    --background-image-url: url('../../../assets/briefcase.png');
+    --height: 60px;
+    height: var(--height);
+}
+
+:host::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: calc((var(--height) - 24px) / 2); 
+    left: 20px;
+    width: calc(100% - 20px); 
+    height: 100%;
+    background-image: var(--background-image-url);
+    filter: invert(200%) brightness(700%) grayscale(100%) contrast(2) opacity(.65);
+    mix-blend-mode: screen; 
+    background-repeat: no-repeat;
+    text-align: left;
+}
+
+h4 {
+    width: 100%;
+    font-weight: 300;
+    line-height:1.5em;
+    font-size: 16px;
+    line-height:var(--height);
+    display: block;  
+    text-align: center;
+    color: white; 
+    padding:0;
+    margin: 0; 
+}

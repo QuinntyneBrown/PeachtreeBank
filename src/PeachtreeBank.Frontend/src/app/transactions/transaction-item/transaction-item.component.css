@@ -1,0 +1,49 @@
+:host {
+    display: grid;
+    background-color: #fff;
+    height: 70px;
+    
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 10px 1fr;
+}
+
+:host > div:first-child {
+    display: block;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color, #1180aa);
+}
+
+div:nth-child(2) {
+    display: grid;
+    border-bottom: 1px solid #ccc;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 100px 80px 1fr 100px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+img {
+    max-width: 40px;
+}
+
+h5 {
+    margin:0;
+    padding:0;
+    line-height: 1em;
+    font-size: 13px;
+}
+
+span {
+    font-size: 11px;
+}
+
+section {
+    text-align: left;
+    width: 100%;
+    justify-items: left;
+}

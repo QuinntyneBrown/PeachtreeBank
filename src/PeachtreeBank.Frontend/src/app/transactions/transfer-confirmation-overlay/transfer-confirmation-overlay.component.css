@@ -1,0 +1,16 @@
+:host {
+    background-color: #fff;
+    width: 100%;
+    min-width: 800px;
+    display: block;    
+}
+
+app-transaction-item {
+    margin: 30px;
+    border-top:1px #ccc solid;
+    border-right:1px #ccc solid;
+}
+
+button {
+    margin: 0px 0px 30px 30px;
+}

@@ -1,0 +1,26 @@
+:host {
+    margin-bottom: 50px;
+}
+app-sub-header {
+    height: 60px;
+    line-height: 60px;    
+}
+
+div {
+    padding:30px 20px;
+    background-color: #fff;
+}
+
+app-transaction-item {
+    border-right: 1px solid #ccc;
+}
+
+app-transaction-item:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.recentTransactions__controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
+}

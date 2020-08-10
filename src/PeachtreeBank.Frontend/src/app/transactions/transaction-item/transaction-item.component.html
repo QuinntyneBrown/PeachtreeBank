@@ -1,0 +1,10 @@
+<div></div>
+<div>
+    <div>{{ transaction.transactionDate | date: 'MMM. d'}}</div>
+    <img src="{{ transaction.merchantLogo }}"/>
+    <section>
+        <h5>{{ transaction.merchant }}</h5>
+        <span>{{ transaction.transactionType }}</span>
+    </section>
+    <div>-{{ transaction.amount | currency }}</div>
+</div>

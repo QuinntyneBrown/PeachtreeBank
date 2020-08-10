@@ -1,12 +1,11 @@
-using MediatR;
-using System.Threading.Tasks;
-using System.Threading;
-using PeachtreeBank.Core.Data;
-using PeachtreeBank.Domain.Features.Transactions;
 using FluentValidation;
-using System.Linq;
-using PeachtreeBank.Domain.Features.Extensions;
+using MediatR;
+using PeachtreeBank.Core.Data;
 using PeachtreeBank.Core.Models;
+using PeachtreeBank.Domain.Features.Extensions;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PeachtreeBank.Domain.Features.Transactions
 {

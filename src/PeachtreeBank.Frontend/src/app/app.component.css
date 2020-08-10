@@ -1,0 +1,16 @@
+:host {
+    display: grid;
+    min-height: 100vh;
+    width: 100%;
+    grid-template-rows: min-content 1fr;
+    height: 100%;
+}
+
+app-header {
+    margin: 0 auto;
+    border-bottom: 3px solid #ee7033;
+}
+
+app-transactions {
+
+}
