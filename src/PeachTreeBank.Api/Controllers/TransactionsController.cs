@@ -15,7 +15,7 @@ namespace PeachtreeBank.Api.Controllers
 
         public TransactionsController(IMediator mediator) => _mediator = mediator;
 
-        [HttpPut(Name = "UpsertTransactionRoute")]
+        [HttpPost(Name = "UpsertTransactionRoute")]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(UpsertTransaction.Response), (int)HttpStatusCode.Created)]

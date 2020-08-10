@@ -16,7 +16,7 @@ namespace PeachtreeBank.Domain.Features.Transactions
         {
             public Validator()
             {
-
+                RuleFor(x => x.Transaction != null);
             }
         }
 
@@ -41,6 +41,7 @@ namespace PeachtreeBank.Domain.Features.Transactions
                 if(transaction == null)
                 {
                     transaction = new Transaction();
+                    _context.Transactions.Add(transaction);
                 }
 
                 transaction.Merchant = request.Transaction.Merchant;
@@ -50,7 +51,11 @@ namespace PeachtreeBank.Domain.Features.Transactions
                 transaction.Amount = float.Parse(request.Transaction.Amount);
                 transaction.TransactionType = request.Transaction.TransactionType.ToTransactionTypeEnum();
 
-                return new Response() { };
+                await _context.SaveChangesAsync(cancellationToken);
+
+                return new Response() { 
+                    Transaction = transaction.ToDto()
+                };
             }
         }
     }
