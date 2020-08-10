@@ -10,15 +10,17 @@ import { baseUrl } from 'src/app/core/constants';
   providedIn: 'root'
 })
 export class TransactionService {
+
+  public transactions$: Observable<Transaction[]> = this.httpClient
+  .get<{ transactions: Transaction[]}>(`${this._baseUrl}api/transactions`).pipe(
+    map(x => x.transactions)
+  );
+
   constructor(
     @Inject(baseUrl) private _baseUrl: string,
     private httpClient: HttpClient) { }
 
-  public get(): Observable<Transaction[]>{
-    return this.httpClient.get<{ transactions: Transaction[]}>(`${this._baseUrl}api/transactions`).pipe(
-      map(x => x.transactions)
-    );
-  }
+
 
   public getById(options: { transactionId: string }): Observable<Transaction>{
     return this.httpClient.get<{ transaction: Transaction}>(`${this._baseUrl}api/transactions/${options.transactionId}`).pipe(

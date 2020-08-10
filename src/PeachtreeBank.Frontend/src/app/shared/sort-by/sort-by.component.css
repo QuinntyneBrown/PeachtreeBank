@@ -29,3 +29,9 @@ span:nth-child(2) {
 span:not(:first-child) {
     cursor: pointer;
 }
+
+svg {
+    display: inline-block;
+    height: 16px;
+    line-height: 32px;
+}

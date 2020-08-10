@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 export class AppComponent {
   constructor(public localStorageService: LocalStorageService, transactionService: TransactionService) {
 
-    transactionService.get().pipe(
+    transactionService.transactions$.pipe(
       tap(x => {
         let total = 0;
         for (const t of x) {
