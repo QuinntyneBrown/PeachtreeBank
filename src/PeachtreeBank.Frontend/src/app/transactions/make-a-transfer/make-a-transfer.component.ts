@@ -29,7 +29,7 @@ export class MakeATransferComponent implements OnInit {
   public get amount(): any { return this.form.get('amount'); }
 
   @Output()
-  public createTransfer: EventEmitter<any> = new EventEmitter();
+  public transferCreated: EventEmitter<any> = new EventEmitter();
 
   constructor(
     public transferConfirmation: TransferConfirmation,
@@ -59,6 +59,7 @@ export class MakeATransferComponent implements OnInit {
     component.afterClose$.pipe(
 
     ).subscribe(x => {
+      this.transferCreated.emit();
       this.fromAccountPlaceholder = `Free Checking(4692) ${this.currencyPipe.transform(this.accountBalance)}`;
     });
   }
