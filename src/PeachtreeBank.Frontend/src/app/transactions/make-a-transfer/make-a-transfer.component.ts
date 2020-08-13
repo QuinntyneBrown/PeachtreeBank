@@ -42,7 +42,7 @@ export class MakeATransferComponent implements OnInit {
 
   public get accountBalance(): string { return this.localStorageService.get({ name: accountBalanceKey }); }
 
-  public tryToSubmit() {
+  public tryToSubmit(): void {
     const transaction = {} as Transaction;
 
     transaction.amount = this.form.value.amount;
