@@ -1,4 +1,4 @@
-﻿using PeachtreeBank.Core.BuildingBlocks;
+﻿using BuildingBlocks;
 using PeachtreeBank.Core.Enums;
 using PeachtreeBank.Core.Models;
 using PeachtreeBank.Domain.Features.Transactions;

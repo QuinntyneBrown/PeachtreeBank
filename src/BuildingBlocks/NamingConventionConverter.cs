@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using Humanizer;
 
-namespace PeachtreeBank.Core.BuildingBlocks
+namespace BuildingBlocks
 {
     public enum NamingConvention
     {
@@ -43,7 +43,6 @@ namespace PeachtreeBank.Core.BuildingBlocks
                     value = value.Replace("-", "");
                     value = value.Replace(" ", "");
                     return value.First().ToString().ToLower() + value.Substring(1);
-                    break;
 
                 case NamingConvention.PascalCase:
                     value = FirstCharacterUpperAfterADash(value);
@@ -51,7 +50,6 @@ namespace PeachtreeBank.Core.BuildingBlocks
                     value = value.Replace("-", "");
                     value = value.Replace(" ", "");
                     return value.First().ToString().ToUpper() + value.Substring(1);
-                    break;
 
                 case NamingConvention.SnakeCase:
                     value = FirstCharacterUpperAfterASpace(value);
@@ -66,14 +64,12 @@ namespace PeachtreeBank.Core.BuildingBlocks
                     value = InsertSpaceBeforeUpperCase(value);
                     value = value.Replace("-", "");
                     return value.First().ToString().ToUpper() + value.Substring(1);
-                    break;
 
                 case NamingConvention.AllCaps:
                     value = Convert(NamingConvention.SnakeCase, value);
                     value = value.Replace("-", "_");
                     value = value.ToUpper();
                     return value;
-                    break;
             }
 
             return value;

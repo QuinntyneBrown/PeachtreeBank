@@ -5,9 +5,9 @@ import { storageKey } from './constants';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  private _items?: any[] = null;
+  private _items?: any[] | null = null;
 
-  public get items(): any[] {
+  public get items(): any[] | null | undefined {
     if (this._items === null) {
       let storageItems = localStorage.getItem(storageKey);
       if (storageItems === 'null') {
@@ -18,7 +18,7 @@ export class LocalStorageService {
     return this._items;
   }
 
-  public set items(value: Array<any>) {
+  public set items(value: any[] | null | undefined) {
     this._items = value;
   }
 
