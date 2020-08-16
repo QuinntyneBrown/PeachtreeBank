@@ -143,23 +143,19 @@ namespace BuildingBlocks
                     return !value.Contains(" ")
                         && !value.Contains("-")
                         && char.IsLower(value.First());
-                    break;
 
                 case NamingConvention.PascalCase:
                     return !value.Contains(" ")
                         && !value.Contains("-")
                         && char.IsUpper(value.First());
-                    break;
 
                 case NamingConvention.TitleCase:
                     return !value.Contains("-")
                         && char.IsUpper(value.First());
-                    break;
 
                 case NamingConvention.SnakeCase:
                     return !value.Contains(" ")
                         && !value.Any(c => char.IsUpper(c));
-                    break;
             }
 
             throw new NotImplementedException();

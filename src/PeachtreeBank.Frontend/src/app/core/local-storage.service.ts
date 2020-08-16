@@ -5,9 +5,10 @@ import { storageKey } from './constants';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  private _items?: any[] | null = null;
+  // tslint:disable-next-line: variable-name
+  private _items?: any[] = undefined;
 
-  public get items(): any[] | null | undefined {
+  public get items(): any[] | undefined {
     if (this._items === null) {
       let storageItems = localStorage.getItem(storageKey);
       if (storageItems === 'null') {
@@ -18,14 +19,16 @@ export class LocalStorageService {
     return this._items;
   }
 
-  public set items(value: any[] | null | undefined) {
+  public set items(value: any[] | undefined) {
     this._items = value;
   }
 
   public get = (options: { name: string }) => {
     let storageItem = null;
-    for (const item of this.items) {
-      if (options.name === item.name) { storageItem = item.value; }
+    if (this.items) {
+      for (const item of this.items) {
+        if (options.name === item.name) { storageItem = item.value; }
+      }
     }
     return storageItem;
   }
@@ -33,22 +36,25 @@ export class LocalStorageService {
   public put = (options: { name: string; value: any }) => {
     let itemExists = false;
 
-    this.items.forEach((item: any) => {
-      if (options.name === item.name) {
-        itemExists = true;
-        item.value = options.value;
-      }
-    });
+    if (this.items) {
+      this.items.forEach((item: any) => {
+        if (options.name === item.name) {
+          itemExists = true;
+          item.value = options.value;
+        }
+      });
+    }
 
-    if (!itemExists) {
-      let items = this.items;
+    if (this.items && !itemExists) {
+      let items: any[] | undefined = this.items;
       items.push({ name: options.name, value: options.value });
       this.items = items;
-      items = null;
+      items = undefined;
     }
 
     this.updateLocalStorage();
-  };
+  }
+
   public updateLocalStorage(): void {
     localStorage.setItem(storageKey, JSON.stringify(this._items));
   }

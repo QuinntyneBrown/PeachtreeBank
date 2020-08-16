@@ -26,7 +26,9 @@ namespace PeachtreeBank.Api
 
             services.AddDbContext<PeachtreeBankDbContext>(options =>
             {
-                options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"], b => b.MigrationsAssembly("PeachtreeBank.Api"));
+                options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"], b => b.MigrationsAssembly("PeachtreeBank.Api"))
+                .UseLoggerFactory(PeachtreeBankDbContext.ConsoleLoggerFactory)
+                .EnableSensitiveDataLogging();
             });
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
