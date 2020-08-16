@@ -3,6 +3,7 @@ using PeachtreeBank.Core.Data;
 using PeachtreeBank.Core.Models;
 using PeachtreeBank.Domain.Features.Extensions;
 using PeachtreeBank.Domain.Features.Transactions;
+using BuildingBlocks;
 
 namespace PeachtreeBank.Api.Seeding
 {

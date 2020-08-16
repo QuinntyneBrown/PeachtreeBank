@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace PeachtreeBank.Api
+namespace BuildingBlocks
 {
-    internal class StaticFileLocator
+    public class StaticFileLocator
     {
         public static string GetAsString(string name)
         {
