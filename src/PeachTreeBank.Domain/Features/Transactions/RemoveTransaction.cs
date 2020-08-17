@@ -12,10 +12,7 @@ namespace PeachtreeBank.Domain.Features.Transactions
             public Guid TransactionId { get; set; }
         }
 
-        public class Response
-        {
-
-        }
+        public class Response { }
 
         public class Handler : IRequestHandler<Request, Response>
         {
@@ -24,6 +21,10 @@ namespace PeachtreeBank.Domain.Features.Transactions
             public Handler(IPeachtreeBankDbContext context) => _context = context;
 
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken) {
+                var transaction = await _context.Transactions.FindAsync(request.TransactionId);
+
+                _context.Transactions.Remove(transaction);
+
 			    return new Response() { };
             }
         }
